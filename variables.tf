@@ -36,7 +36,7 @@ variable "address_space" {
 
 variable "subnet_address_prefix" {
   description = "Address prefix for the subnet"
-  type        = string
+  type        = list(string)
 }
 
 variable "nsg_rule_name" {
