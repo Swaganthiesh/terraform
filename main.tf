@@ -14,7 +14,7 @@ resource "azurerm_subnet" "example" {
   name                 = var.subnet_name
   resource_group_name  = azurerm_resource_group.example.name
   virtual_network_name = azurerm_virtual_network.example.name
-  address_prefix       = var.subnet_address_prefix
+  address_prefixes     = var.subnet_address_prefix
 }
 
 resource "azurerm_network_security_group" "example" {
