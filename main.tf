@@ -43,7 +43,22 @@ resource "azurerm_route_table" "example" {
   resource_group_name = azurerm_resource_group.example.name
 }
 
+# Define routes in the route table
+resource "azurerm_route" "example" {
+  name                   = "route-to-internet"
+  resource_group_name    = azurerm_resource_group.example.name
+  route_table_name       = azurerm_route_table.example.name
+  address_prefix         = "0.0.0.0/0"          # Route to all traffic (Internet)
+  next_hop_type          = "Internet"            # Direct traffic to the Internet
+}
+
 resource "azurerm_subnet_route_table_association" "example" {
   subnet_id      = azurerm_subnet.example.id
   route_table_id = azurerm_route_table.example.id
+}
+
+# Associate Network Security Group (NSG) to the subnet
+resource "azurerm_subnet_network_security_group_association" "example" {
+  subnet_id                 = azurerm_subnet.example.id
+  network_security_group_id = azurerm_network_security_group.example.id
 }
