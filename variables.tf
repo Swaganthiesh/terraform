@@ -43,3 +43,8 @@ variable "nsg_rule_name" {
   description = "NSG rule name"
   type        = string
 }
+
+variable "subscription_id" {
+  description = "The Azure subscription ID"
+  type        = string
+}

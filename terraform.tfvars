@@ -7,3 +7,4 @@ route_table_name    = "myRouteTable"
 address_space       = ["10.0.0.0/16"]
 subnet_address_prefix = ["10.0.1.0/24"]
 nsg_rule_name       = "myNSGRule"
+subscription_id     = "26baf75f-5e76-465b-a77b-eb6825f6219e"
